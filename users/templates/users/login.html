@@ -1,0 +1,21 @@
+{% extends 'logApp/base.html' %}
+
+{% block content %}
+<div class="container">
+    <form method= "POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend class="border-bottom mb-4">Log In</legend>
+            {{ form.as_p }}
+            {% comment %} <button class="form-submit">Sign In</button> {% endcomment %}
+        </fieldset>
+        <div class="form-group py-3">
+            <input class= "btn btn-outline-primary" type="submit" value="Sign In" />
+        </div>
+
+    </form>
+    <div class="border-top pt-3">
+        <a href="{% url 'user-register' %}">Don't Have an Account? Register Here</a>
+    </div>
+</div>
+{% endblock content %}

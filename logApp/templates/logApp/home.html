@@ -1,0 +1,20 @@
+{% extends 'logApp/base.html' %}
+
+    {% block content %}
+
+    {% for meal in meals %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{meal.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{meal.created_at}}</h6>
+              <p class="card-text">{{meal.description}} | {{meal.author}} </p>
+
+
+              {% comment %} <a href="{% url 'meal-detail'  meal.pk %}" class="card-link">View Meal Details</a> {% endcomment %}
+              <a href="{% url 'meal-detail' meal.pk %}" class="card-link">View Meal Details</a>
+              <a href="{% url 'meal-update' meal.pk %}" class="card-link">Edit Meal Details</a>
+            </div>
+          </div>
+    {% endfor %}
+
+    {% endblock content %}

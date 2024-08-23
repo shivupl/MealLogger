@@ -1,0 +1,20 @@
+{% extends 'logApp/base.html' %}
+
+    {% block content %}
+    <h1>Meal #{{object.title}}</h1>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{object.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{object.created_at}}</h6>
+              <p class="card-text">{{object.description}} | {{object.author}} </p>
+            </div>
+          </div>
+          
+          <div class="border-top pt-3">
+            <a href= "{% url 'meal-update' object.id %}">Update Details</a>
+            <a href= "{% url 'meal-delete' object.id %}">Delete Meal</a>
+
+        </div>
+
+    {% endblock content %}
